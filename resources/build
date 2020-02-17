@@ -9,12 +9,6 @@ set -x -eo pipefail
 apk add --no-cache gradle=${GRADLE_VERSION}
 
 ###
-# Cleaning image
-###
-
-apk del --no-cache curl
-
-###
 # CIS Hardening
 ###
 
