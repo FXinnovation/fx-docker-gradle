@@ -6,7 +6,24 @@ set -x -eo pipefail
 # Installations
 ###
 
-apk add --no-cache gradle=${GRADLE_VERSION}
+apk add --no-cache curl ca-certificates=${CACERTIFICATES_VERSION} openjdk11-jre=${JAVA_VERSION}
+
+curl -sSLo /resources/gradle-${GRADLE_VERSION}-bin.zip \
+  https://downloads.gradle-dn.com/distributions/gradle-${GRADLE_VERSION}-bin.zip
+unzip /resources/gradle-${GRADLE_VERSION}-bin.zip -d /usr/local/bin
+chmod +x /usr/local/bin/gradle
+
+###
+# Cleaning image
+###
+
+apk del --no-cache curl
+
+###
+# Test
+###
+
+gradle --version
 
 ###
 # CIS Hardening
