@@ -1,4 +1,4 @@
-# gradle docker image
+# Gradle docker image
 
 ## Description
 This image contains python [pre-commit](https://pre-commit.com/).
